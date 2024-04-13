@@ -3,6 +3,8 @@ const connectToDb = require('./db');
 const userdb = require('./routes/Authentication');
 const fetchingNotes = require('./routes/FetchNotes');
 const creatingNotes = require('./routes/CreateNote');
+const UpdateNote = require('./routes/UpdateNote');
+const deletenote = require('./routes/DeleteNotes');
 
 connectToDb();
 const app = express();
@@ -18,6 +20,8 @@ app.get('/', (req,res) => {
 app.use(userdb)
 app.use(creatingNotes);
 app.use(fetchingNotes);
+app.use(UpdateNote);
+app.use(deletenote);
 
 
 app.listen(port , () => {

@@ -47,7 +47,7 @@ router.post(
           id: user.id,
         },
       };
-      const authtoken = jwt.sign(payload, secret, { expiresIn: '1h' });
+      const authtoken = jwt.sign(payload, secret, { expiresIn: '7d' });
       // Send the JWT in the response
       res.json({ authtoken });
     } catch (error) {
@@ -88,7 +88,7 @@ router.post("/api/auth/login", [body("email").isEmail()], async (req, res) => {
         id: user.id,
       },
     };
-    const authtoken = jwt.sign(payload, secret, { expiresIn: '1h' });
+    const authtoken = jwt.sign(payload, secret, { expiresIn: '7d' });
     // Send the JWT in the response
     res.json({ authtoken });
   } catch (error) {
